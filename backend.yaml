@@ -1,0 +1,7 @@
+- name: configuring backend server
+  hosts: backend
+  tasks:
+  - name: disable nodejs old version
+    community.general.npm:
+    name: nodejs
+    state: absent
