@@ -3,5 +3,5 @@
   tasks:
   - name: disable nodejs old version
     community.general.npm:
-    name: nodejs
-    state: absent
+      name: nodejs
+      state: absent
