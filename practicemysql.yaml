@@ -12,3 +12,10 @@
       name: mysqld
       state: started
       enabled: yes
+    
+  - name: setting root password
+    community.mysql.mysql_info:
+      login_user: root
+      login_password: ExpenseApp@1
+      login_host: mysql.devopsclass.tech
+  
