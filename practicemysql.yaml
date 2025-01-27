@@ -2,6 +2,9 @@
   hosts: mysql
   become: yes
   tasks:
+  - name: Install packages
+    ansible.builtin.pip:
+
   - name: Install mysql
     ansible.builtin.package:
       name: mysql-server
@@ -13,9 +16,17 @@
       state: started
       enabled: yes
     
-  - name: setting root password
+  - name: Connect to mysql server
     community.mysql.mysql_info:
       login_user: root
       login_password: ExpenseApp@1
       login_host: mysql.devopsclass.tech
+    register: mysql_info
+
+  - name: print the output
+    ansible.builtin.debug:
+      msg: " MySql info is {{ mysql_info }}"
+      
+
+  
   
